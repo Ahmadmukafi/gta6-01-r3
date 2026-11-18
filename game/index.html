@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VERTEX CITY — Skyline Outlaw</title>
+<link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+<div id="game"></div>
+
+<!-- In-game HUD -->
+<div id="screen-hud" class="screen" style="display:none">
+  <div id="hud-top-left">
+    <div id="hp-bar"><div id="hp-fill"></div></div>
+    <div id="hp-num">100</div>
+    <div id="cash">$250</div>
+    <div id="heat">☆☆☆☆☆</div>
+  </div>
+  <div id="hud-top-right">
+    <div id="mission-title">FIRST WHEELS</div>
+    <div id="mission-count">MISSION 1 / 5</div>
+    <div id="objective">Steal any car (E) and bring it to the Skydeck garage.</div>
+    <div id="timer" style="display:none"></div>
+  </div>
+  <canvas id="minimap" width="190" height="190"></canvas>
+  <div id="speed" style="display:none"><span id="speed-num">0</span> km/h</div>
+  <div id="crosshair">+</div>
+  <div id="toast"></div>
+  <div id="damage"></div>
+  <div id="controls-hint">WASD move · Shift sprint · Space jump · Q SKYHOOK grapple · E steal car · Click shoot · P pause · M mute</div>
+</div>
+
+<!-- Start menu -->
+<div id="screen-menu" class="screen overlay">
+  <div class="panel">
+    <h1>VERTEX<span>CITY</span></h1>
+    <h2>SKYLINE OUTLAW</h2>
+    <p class="story">Rain never stops in Vertex City. You are <b>KAIRO</b>, a courier who
+    just burned the wrong crew. NOVA has five jobs for you — steal, deliver,
+    outrun the heat, and climb the rooftops no cop can reach. The skyline is
+    yours if you can take it.</p>
+    <div class="controls">
+      <div><b>WASD</b> move / drive</div>
+      <div><b>Mouse</b> look · <b>Click</b> shoot</div>
+      <div><b>Q</b> SKYHOOK — grapple to a rooftop</div>
+      <div><b>E</b> steal / exit car</div>
+      <div><b>Space</b> jump · <b>Shift</b> sprint · <b>P</b> pause</div>
+    </div>
+    <button id="btn-start">START THE NIGHT</button>
+    <button id="btn-continue" class="ghost">CONTINUE SAVED GAME</button>
+    <p class="fine">An open-world crime game. Best on desktop Chrome, keyboard + mouse.
+    Progress saves in this browser. No network needed.</p>
+  </div>
+</div>
+
+<!-- Pause -->
+<div id="screen-pause" class="screen overlay" style="display:none">
+  <div class="panel">
+    <h1>PAUSED</h1>
+    <p class="story">The rain keeps falling. The city waits.</p>
+    <button id="btn-resume">RESUME</button>
+  </div>
+</div>
+
+<!-- Busted / dead -->
+<div id="screen-busted" class="screen overlay" style="display:none">
+  <div class="panel">
+    <h1 class="red">FLATLINED</h1>
+    <p class="story">Vertex City chews up couriers and spits out headlines.
+    Half your cash is gone. NOVA is still waiting.</p>
+    <button id="btn-retry">TRY AGAIN</button>
+  </div>
+</div>
+
+<!-- All missions done -->
+<div id="screen-complete" class="screen overlay" style="display:none">
+  <div class="panel">
+    <h1 class="gold">SKYLINE KING</h1>
+    <p class="story">Five jobs. Zero arrests. The vault van is yours and the whole
+    city saw you take it from the tallest spire.</p>
+    <p class="stats">Cash: <b id="final-cash">$0</b> · Time: <b id="final-time">0 min</b></p>
+    <button id="btn-again">RUN IT AGAIN</button>
+  </div>
+</div>
+
+<script src="vendor/three.min.js"></script>
+<script src="src/config.js"></script>
+<script src="src/city.js"></script>
+<script src="src/player.js"></script>
+<script src="src/vehicles.js"></script>
+<script src="src/peds.js"></script>
+<script src="src/missions.js"></script>
+<script src="src/hud.js"></script>
+<script src="src/audio.js"></script>
+<script src="src/main.js"></script>
+</body>
+</html>
